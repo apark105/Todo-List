@@ -7,3 +7,40 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
 input[type=text]:not(.browser-default):focus:not([readonly])+label {
     color: #03569f;
 }
+
+.overallContainer {
+    width: 100%;
+    height: 100%; 
+}
+
+
+
+.titleContainer {
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titleHeader {
+    width: 60%;
+    height: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #C4C4C4;
+    font-size: 4vmin;
+}
+
+.listContainer {
+    width: 100%;
+    height: 60%;
+    /* margin-top: 3%;  */
+    display: flex;
+    overflow: auto;
+}
+
+#root { 
+    height: 100vh;
+    width: 100vw;
+}

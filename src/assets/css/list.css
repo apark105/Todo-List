@@ -1,0 +1,12 @@
+.listViewContainer {
+    width: 40%;
+    height: 100%; 
+    /* display: flex; */
+    /* justify-content: center; */
+}
+
+.listViewInfo {
+    background-color: #C4C4C4;
+    width: 90%;
+    height: 568px;
+}
