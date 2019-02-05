@@ -106,3 +106,7 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
 .boxText::before {
     content: "X";
 }
+
+.expandBox {
+    background-color: #4D91C2;
+}

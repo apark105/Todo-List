@@ -17,6 +17,7 @@ class InitialList extends Component {
                 toggle: false,
             },
             list: listData,
+            expandBox: false,
         }
     }
     handleSubmit = (e) => {
@@ -26,11 +27,18 @@ class InitialList extends Component {
             list: [...list, itemInfo], 
         })
         this.resetForm();
-        this.renderTheList();
     }
 
     resetForm = () => {
         document.getElementById('inputText').reset();
+        this.setState({
+            itemInfo: {
+                title: ' ',
+                details: ' ',
+                _id: '',
+                toggle: false,
+            }
+        })
     }
     
 
@@ -50,11 +58,21 @@ class InitialList extends Component {
         console.log('did it delete me?',key)
     }
 
+
+    checkBoxIfExpanded = () => {
+        if(this.state.expandBox) {
+            this.setState({expandBox: false})
+        } else {
+            console.log('was this clicked?')
+            this.setState({expandBox: true})
+        }
+    }
+
     render() {
         const { list } = this.state
         const listItem = list.map((item, index) => {
             return (
-                <RenderListItem key={item._id} data={item} delete={this.deleteItem}/>
+                <RenderListItem key={item._id} data={item} delete={this.deleteItem} checkBox={this.checkBoxIfExpanded} check={this.expandBox} />
             )
         } ) 
         return(
