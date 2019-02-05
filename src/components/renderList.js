@@ -8,7 +8,8 @@ class RenderListItem extends Component {
         super(props);
 
         this.state = {
-            checkBox: false
+            checkBox: false,
+            expandBox: false,
         }
     }
 
@@ -22,18 +23,28 @@ class RenderListItem extends Component {
     }
 
 
+    checkBoxIfExpanded = () => {
+        if(this.state.expandBox) {
+            this.setState({expandBox: false})
+        } else {
+            console.log('was this clicked?')
+            this.setState({expandBox: true})
+        }
+    }
+
     render() {
+        const overallCheck = this.state.expandBox && !this.state.checkBox ? "expandBox" : " "; 
 
         const { data } = this.props
             return (
                 <div id="ilItems" className="ilItems">
                     <div className="ilItemsBorder">
-                        <div className="boxContainer"> 
+                        <div className={`boxContainer ${overallCheck}`}> 
                             <div onClick={this.checkBoxClicked} id="box" className={`box ${this.state.checkBox ? "boxText": ""}`}>
                             
                             </div>
                         </div>
-                        <div id={`text`} className={`text ${this.state.checkBox ? "crossText": ""}`}>
+                        <div onClick={this.checkBoxIfExpanded} className={`text ${this.state.checkBox ? "crossText": ""} ${overallCheck}`}>
                             {data.title} 
                         </div>
                             <button onClick={ () => {this.props.delete(data._id)}} className="button">Delete</button>

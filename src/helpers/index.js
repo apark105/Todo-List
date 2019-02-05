@@ -1,4 +1,7 @@
 export function randomString(length){
+    if ( length < 5 ) {
+        length += length
+    }
     const values = 'abcdefghijklmnopqrestuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
 
     let randomstring = '';
